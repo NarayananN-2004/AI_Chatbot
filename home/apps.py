@@ -11,3 +11,4 @@ class HomeConfig(AppConfig):
     def ready(self):
         #from home.ml_utils import JarvisEngine
        # self.engine = JarvisEngine()
+        pass
