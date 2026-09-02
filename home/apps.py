@@ -9,5 +9,5 @@ class HomeConfig(AppConfig):
     name = "home"
 
     def ready(self):
-        from home.ml_utils import JarvisEngine
-        self.engine = JarvisEngine()
+        #from home.ml_utils import JarvisEngine
+       # self.engine = JarvisEngine()
