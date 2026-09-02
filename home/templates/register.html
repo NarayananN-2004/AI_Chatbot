@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <h1 style="text-align: center; color: white;font-family: font3;">Welcome to AI Chat Bot</h1>
+
+    <form class="col-4 mx-auto card p-3 shadow-lg" action="" method="post">
+          {% csrf_token %}
+  <h1><a href='/register' class="text-decoration-none text-dark">REGISTER</a></h1>
+
+  <div class="mb-3 ">
+    <label  class="form-label">USERNAME</label>
+    <input type="text" required name="username" class="form-control" >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-check-label" >EMAIL ID</label>
+    <input type="email" required name="email" class="form-control" id="exampleCheck1">
+  </div>
+  
+  <div class="mb-3">
+    <label class="form-check-label" >PASSWORD
+    </label>
+
+    <input type="password" required name="password" class="form-control">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {% if messages %}
+  {% for message in messages %}
+    <p style="color:red;">{{ message }}</p>
+  {% endfor %}
+{% endif %}
+
+
+  <a href='/login'>Already have an account?login</a>
+    </form>
+
+{% endblock %}

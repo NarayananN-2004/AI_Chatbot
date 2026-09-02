@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .feature-card {
+        border: none;
+        border-radius: 16px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px) scale(1.02);
+    }
+
+    .feature-card-1 {
+        background: linear-gradient(135deg, #ff6a3d, #ff3d77);
+    }
+    .feature-card-1:hover {
+        box-shadow: 0 15px 35px rgba(255, 61, 119, 0.4);
+    }
+
+    .feature-card-2 {
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+    }
+    .feature-card-2:hover {
+        box-shadow: 0 15px 35px rgba(0, 114, 255, 0.4);
+    }
+
+    .feature-card-3 {
+        background: linear-gradient(135deg, #7f00ff, #e100ff);
+    }
+    .feature-card-3:hover {
+        box-shadow: 0 15px 35px rgba(225, 0, 255, 0.4);
+    }
+
+    .feature-card .card-title {
+        font-weight: 600;
+    }
+
+    .feature-card .card-text {
+        color: rgba(255, 255, 255, 0.85) !important;
+    }
+</style>
+
+<div class="container py-5">
+
+    <!-- Hero section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-white">AI Chat Bot</h1>
+        <h3 class="lead text-white-100">
+            Your intelligent assistant for instant answers, natural conversations,
+            and help whenever you need it — no waiting, no hassle.
+        </h3>
+        <a href="/login" class="btn btn-primary btn-lg me-2">Start Chatting</a>
+        <a href="/login" class="btn btn-outline-light btn-lg">Login/Sign up</a>
+    </div>
+
+    <!-- Feature cards -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card feature-card feature-card-1 text-white h-100 p-3">
+                <div class="card-body">
+                    <h5 class="card-title">💬 Natural Conversations</h5>
+                    <p class="card-text">
+                        Chat like you would with a person. Ask follow-up questions,
+                        get context-aware answers, no rigid menus.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card feature-card-2 text-white h-100 p-3">
+                <div class="card-body">
+                    <h5 class="card-title">⚡ Instant Answers</h5>
+                    <p class="card-text">
+                        Get responses in real time — whether it's a quick fact,
+                        a detailed explanation, or help solving a problem.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card feature-card-3 text-white h-100 p-3">
+                <div class="card-body">
+                    <h5 class="card-title">🌙 Available 24/7</h5>
+                    <p class="card-text">
+                        No opening hours, no queues. The assistant is ready
+                        whenever you are.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why use this -->
+    <div class="text-center">
+        <h3 class="text-white mb-3">Why use this?</h3>
+        <h3 class="lead text-white-500 mx-auto" style="max-width: 600px;">
+            Whether you're looking for quick answers, brainstorming ideas, or just
+            want to talk something through, this chatbot is built to help —
+            simply, quickly, and without the clutter.
+        </h3>
+    </div>
+
+</div>
+{% endblock %}

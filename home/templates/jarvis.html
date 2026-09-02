@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center" style="padding: 10px 20px;">
+    <h1 class="badge text-bg-primary text-wrap m-0 me-auto" style="width: auto; font-size: 1.5em;">
+        <i class="bi bi-person-circle"></i>
+        {{ request.user }}
+    </h1>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'logout_page' %}" class="btn btn-success">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}" class="btn btn-danger">Login</a>
+    {% endif %}
+    <a href="/chat/" class ="btn btn-primary ms-2">Chat with Gemini</a>
+</div>
+
+<h1 style="text-align: center; color: white; font-family: font2;">Welcome to AI Chat Bot</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Chat with ML model</h5>
+                    <p class="card-text">👋Hi {{request.user}} Have a conversation with our AI assistant!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 1. FIXED: Added full column width on mobile and kept post action -->
+<form class="col-md-6 mx-auto card p-4 shadow-lg" action="{% url 'jarvis_chat' %}" method="post" style="margin-top: 20px;">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label fw-bold">Type your message</label>
+        <!-- 2. FIXED: Changed name to "question" to match your views.py request.POST.get("question") -->
+        <input type="text" name="question" value="{{ question }}" class="form-control" placeholder="Ask anything..." required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Send message</button>
+</form>
+
+<!-- 3. FIXED: Replaced textarea with an elegant card display block -->
+<div class="col-md-6 mx-auto card p-4 shadow-lg" style="margin-top: 20px;">
+    <!-- 4. FIXED: Checks for "output" variables passed by your views.py context -->
+    {% if output %}
+        <div class="mb-3">
+            <span class="badge bg-secondary">Your Question:</span>
+            <p class="mt-1 ps-2 border-start border-secondary text-muted">{{ question }}</p>
+        </div>
+        <hr>
+        <div>
+            <span class="badge bg-success mb-2">AI Response:</span>
+            <!-- white-space: pre-wrap ensures paragraphs and bullet points look natural -->
+            <div style="white-space: pre-wrap; background-color: #f8f9fa; padding: 15px; border-radius: 5px;" class="border">
+                <div class="ai-response-box">
+                    {{ output|safe }}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p class="text-center text-muted m-0">No response yet. Type a question above to start!</p>
+    {% endif %}
+</div>
+{% endblock %}

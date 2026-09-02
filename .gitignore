@@ -1,0 +1,9 @@
+env/
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+staticfiles/
+*.log
+.env
+home/models/final_model/model.safetensors
