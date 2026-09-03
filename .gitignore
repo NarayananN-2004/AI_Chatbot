@@ -6,4 +6,3 @@ db.sqlite3
 staticfiles/
 *.log
 .env
-home/models/final_model/model.safetensors
